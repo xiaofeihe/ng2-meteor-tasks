@@ -1,0 +1,57 @@
+<form class="form-inline">
+  <div class="form-group">
+    <label for="taskTitle">标题</label>
+    <input type="text" class="form-control" id="tasktitle" placeholder="这里输入标题" #title>
+  </div>
+  <div class="form-group">
+    <label for="taskNote">内容</label>
+    <input type="email" class="form-control" id="taskNote" placeholder="任务描述内容" #beizu>
+  </div>
+  <button type="button" class="btn btn-primary" name="button" (click)="addTask(title,beizu)">添加</button>
+</form>
+
+ <div class="row">
+   <div class="col-sm-4">
+     <ul class="list-group">
+       <li class="list-group-item" *ng-for="#task of tasklist[0]">
+         <div class="card card-block" draggable="true">
+               <h4 class="card-title"> {{task.title}}</h4>
+              <p class="card-text">{{task.beizu}}</p>
+             <button (click)="upState(task,task.state+1)"> ⇛</button>
+               <button (click)="remove(task)">X</button>
+
+          </div>
+
+
+       </li>
+     </ul>
+
+   </div>
+   <div class="col-sm-4">
+     <ul>
+       <li *ng-for="#task of tasklist[1]">
+         <div class="card card-block" draggable="true">
+               <h4 class="card-title"> {{task.title}}</h4>
+              <p class="card-text">{{task.beizu}}</p>
+              <button (click)="upState(task,task.state-1)"> ⇚</button>
+             <button (click)="upState(task,task.state+1)"> ⇛</button>
+               <button (click)="remove(task)">X</button>
+
+          </div>
+       </li>
+     </ul>
+   </div>
+   <div class="col-sm-4">
+     <ul>
+       <li *ng-for="#task of tasklist[2]">
+         <div class="card card-block" draggable="true">
+               <h4 class="card-title"> {{task.title}}</h4>
+              <p class="card-text">{{task.beizu}}</p>
+              <button (click)="upState(task,task.state-1)"> ⇚</button>
+               <button (click)="remove(task)">X</button>
+
+          </div>
+       </li>
+     </ul>
+   </div>
+ </div>
