@@ -5,53 +5,95 @@
   </div>
   <div class="form-group">
     <label for="taskNote">内容</label>
-    <input type="email" class="form-control" id="taskNote" placeholder="任务描述内容" #beizu>
+    <input type="text" class="form-control" id="taskNote" placeholder="任务描述内容" #beizu>
   </div>
   <button type="button" class="btn btn-primary" name="button" (click)="addTask(title,beizu)">添加</button>
 </form>
+<div id="tasks-group" (click)="hideDetail()">
 
- <div class="row">
+
+ <div class="row "   (click)="hideDetail()">
    <div class="col-sm-4">
      <ul class="list-group">
        <li class="list-group-item" *ng-for="#task of tasklist[0]">
-         <div class="card card-block" draggable="true">
-               <h4 class="card-title"> {{task.title}}</h4>
+         <div class="card  " draggable="true">
+           <div class="card-header" (click)="cktask(task)">
+              {{task.title}}
+              <button type="button" class="close"  aria-label="Close">
+                <span (click)="remove(task)">&times;</span>
+              </button>
+           </div>
+           <div class="card-block">
               <p class="card-text">{{task.beizu}}</p>
-             <button (click)="upState(task,task.state+1)"> ⇛</button>
-               <button (click)="remove(task)">X</button>
-
+              <span  class="label label-primary" (click)="upState(task,task.state+1)"> ></span>
+            </div>
           </div>
-
-
        </li>
      </ul>
 
    </div>
    <div class="col-sm-4">
-     <ul>
-       <li *ng-for="#task of tasklist[1]">
-         <div class="card card-block" draggable="true">
-               <h4 class="card-title"> {{task.title}}</h4>
+     <ul class="list-group">
+       <li class="list-group-item" *ng-for="#task of tasklist[1]">
+         <div class="card " draggable="true">
+           <div class="card-header" (click)="cktask(task)">
+              {{task.title}}
+              <button type="button" class="close"  aria-label="Close">
+                <span (click)="remove(task)">&times;</span>
+              </button>
+           </div>
+           <div class="card-block">
               <p class="card-text">{{task.beizu}}</p>
-              <button (click)="upState(task,task.state-1)"> ⇚</button>
-             <button (click)="upState(task,task.state+1)"> ⇛</button>
-               <button (click)="remove(task)">X</button>
+              <span  class="label label-primary" (click)="upState(task,task.state-1)"> <</span>
 
+              <span  class="label label-primary" (click)="upState(task,task.state+1)"> ></span>
+            </div>
           </div>
        </li>
      </ul>
    </div>
    <div class="col-sm-4">
-     <ul>
-       <li *ng-for="#task of tasklist[2]">
-         <div class="card card-block" draggable="true">
-               <h4 class="card-title"> {{task.title}}</h4>
+     <ul class="list-group">
+       <li class="list-group-item" *ng-for="#task of tasklist[2]">
+         <div class="card " draggable="true">
+           <div class="card-header" (click)="cktask(task)">
+              {{task.title}}
+              <button type="button" class="close"  aria-label="Close">
+                <span (click)="remove(task)">&times;</span>
+              </button>
+           </div>
+           <div class="card-block">
               <p class="card-text">{{task.beizu}}</p>
-              <button (click)="upState(task,task.state-1)"> ⇚</button>
-               <button (click)="remove(task)">X</button>
-
+              <span  class="label label-primary" (click)="upState(task,task.state-1)"> <</span>
+            </div>
           </div>
        </li>
      </ul>
    </div>
  </div>
+ <div class="task-detail" id="tkdetail"  >
+ <div class="card text-center" >
+      <div class="card-header">
+        任务详细
+      </div>
+      <div class="card-block">
+        <h4 class="card-title">  {{taskDetail.title}}</h4>
+        <p class="card-text">{{ taskDetail.beizu}}</p>
+      </div>
+      <h5 style="text-align:left">任务记录：  </h5>
+      <ul class="list-group">
+        <li class="list-group-item" *ng-for="#jilu of taskDetail['comments']">
+{{jilu.shijian}}{{jilu.content}}
+        </li>
+
+      </ul>
+        <fieldset class="form-group">
+           <textarea class="form-control" #newjilu rows="3"></textarea>
+         </fieldset>
+           <button type="button" class="btn btn-primary" (click)="addComment(taskDetail,newjilu)">提交</button>
+      <div class="card-footer text-muted">
+
+      </div>
+    </div>
+ </div>
+</div>

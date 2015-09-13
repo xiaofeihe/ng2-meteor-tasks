@@ -1,0 +1,14 @@
+.task-detail{
+        height: calc(100% - 40px );
+       position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 300px;
+        background-color: #f0f0f0;
+        margin-top: 35px;
+        visibility: hidden
+}
+#tasks-group{
+  height: calc(100% - 50px);
+  min-height: 500px;
+}
