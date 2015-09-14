@@ -59,12 +59,6 @@
      <div class="alert alert-success" role="alert">  <strong>完成任务!</strong> </div>
 
      <ul class="list-group">
-       <li class="list-group-item" >
-         <div class="card  " draggable="true">
-           <div class="card-header" (click)="cktask(task)">
-          完成任务
-           </div>
-       </li>
        <li class="list-group-item" *ng-for="#task of tasklist[2]">
          <div class="card " draggable="true">
            <div class="card-header" (click)="cktask(task)">
