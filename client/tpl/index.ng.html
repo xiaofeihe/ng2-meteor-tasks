@@ -14,6 +14,7 @@
 
  <div class="row "   (click)="hideDetail()">
    <div class="col-sm-4">
+     <div class="alert alert-success" role="alert">  <strong>计划任务!</strong> </div>
      <ul class="list-group">
        <li class="list-group-item" *ng-for="#task of tasklist[0]">
          <div class="card  " draggable="true">
@@ -33,6 +34,8 @@
 
    </div>
    <div class="col-sm-4">
+     <div class="alert alert-success" role="alert">  <strong>进行中任务!</strong> </div>
+
      <ul class="list-group">
        <li class="list-group-item" *ng-for="#task of tasklist[1]">
          <div class="card " draggable="true">
@@ -53,7 +56,15 @@
      </ul>
    </div>
    <div class="col-sm-4">
+     <div class="alert alert-success" role="alert">  <strong>完成任务!</strong> </div>
+
      <ul class="list-group">
+       <li class="list-group-item" >
+         <div class="card  " draggable="true">
+           <div class="card-header" (click)="cktask(task)">
+          完成任务
+           </div>
+       </li>
        <li class="list-group-item" *ng-for="#task of tasklist[2]">
          <div class="card " draggable="true">
            <div class="card-header" (click)="cktask(task)">
