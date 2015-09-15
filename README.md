@@ -1,5 +1,7 @@
 # ng2-meteor-tasks
 
+演示效果： http://47.88.2.174:3000
+
 Tasks 数据结构说吗
 
         {
